@@ -1,0 +1,44 @@
+<style>
+    div>div {
+        background-color: rgb(207, 232, 220);
+        border: 2px solid rgb(79, 185, 227);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 100px);
+    }
+
+    .box1 {
+        grid-row: 1 / 3;
+        grid-column: 1;
+    }
+
+    .box2 {
+        grid-row: 3;
+        grid-column: 1 / 3;
+    }
+
+    .box3 {
+        grid-row: 2 / 4;
+        grid-column: 3;
+    }
+    .box4 {
+        grid-row: 1;
+        grid-column: 2 / 4;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="box1">A</div>
+        <div class="box2">B</div>
+        <div class="box3">C</div>
+        <div class="box4">D</div>
+        <div class="box5">E</div>
+    </div>
+</body>
