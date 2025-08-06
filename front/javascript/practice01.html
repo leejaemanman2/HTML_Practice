@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo">text</p>
+    <button type="button" onclick="change()">change</button>
+    <button type="button" onclick="change2()">change2</button>
+
+    <script>
+        function 함수() {
+            location = "https://www.naver.com";
+        }
+        document.querySelector("#demo").addEventListener("click", 함수);
+
+        function change() {
+            document.querySelector("#demo").innerHTML = "change";
+            document.getElementById("demo").innerHTML = "change";
+            document.getElementById("demo").style.color = "red";
+            document.getElementById("demo").style.fontSize = "30px";
+        }
+        function change2() {
+            document.querySelector("button:nth-of-type(2)").innerHTML = "체인지";
+            document.querySelector("#demo").innerHTML = "체인지";
+            document.querySelector("#demo").style.color = "blue";
+            document.querySelector("#demo").style.fontSize = "20px";
+            document.querySelector("body").style.backgroundColor = "yellow";
+        }
+    </script>
+</body>
+
+</html>
