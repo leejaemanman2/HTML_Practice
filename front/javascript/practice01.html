@@ -18,10 +18,15 @@
         document.querySelector("#demo").addEventListener("click", 함수);
 
         function change() {
-            document.querySelector("#demo").innerHTML = "change";
-            document.getElementById("demo").innerHTML = "change";
-            document.getElementById("demo").style.color = "red";
+            document.querySelector("#demo").innerText = "<u>change</u>";
+            
+           /*  document.getElementById("demo").style.color = "red";
             document.getElementById("demo").style.fontSize = "30px";
+            console.log(1);
+            console.log(2);
+            window.print();  */           
+            
+
         }
         function change2() {
             document.querySelector("button:nth-of-type(2)").innerHTML = "체인지";
