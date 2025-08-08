@@ -1,0 +1,28 @@
+<body>
+    <script>
+
+        const f2 = function(pos){
+            console.log(pos);
+
+            const lat = pos.coords.latitude;
+            const log = pos.coords.longitude;
+            console.log(lat, log);
+            
+
+
+            
+
+        }
+        
+
+        navigator.geolocation.getCurrentPosition(f2);
+        
+/* 
+        const f2 = function() {
+            alert('f2 in timeout');
+        };
+
+
+        setTimeout(f2,2000); */
+    </script>
+</body>

@@ -1,0 +1,21 @@
+<body>
+    <script>
+        let result = '';
+        function strtomid(x){
+            const length = x.length
+            const midlength = x.length / 2;
+
+            if(length % 2 == 0){
+                return x.substring(midlength -1, midlength + 1);
+                
+            } else{
+                return x.charAt(midlength);
+                
+            }
+
+
+        }
+        console.log(strtomid("hello"));
+        
+    </script>
+</body>

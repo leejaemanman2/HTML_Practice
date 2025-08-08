@@ -1,0 +1,29 @@
+<body>
+    <script>
+        function calculator(arr) {
+            let total = 0;
+            for(let i = 0; i < arr.length; i++){
+                total += arr[i];
+                
+                
+            }
+            const mean = total / arr.length;
+            return mean;
+
+        }
+
+        console.log(calculator([3,7,9,11]));
+        
+    </script>
+</body>
+
+<!-- function calculator(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    const mean = total / arr.length;
+    return mean;
+}
+
+console.log(calculator([3, 7, 9, 11])); // 👉 7.5 -->

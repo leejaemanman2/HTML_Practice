@@ -1,0 +1,35 @@
+<body>
+    <script>
+        const randomN = parseInt(Math.random() * 10 + 1);
+        let chance = 0;
+        console.log(randomN);
+
+
+
+        function 제출() {
+            const input = document.querySelector(".answer").value;
+            if (input == randomN) {
+                alert("정답")
+                /* document.querySelector("button").disabled = true; */
+            } else {
+                chance++;
+                if (chance > 0) {
+                    alert(`오답 
+${chance}번 시도했습니다.`);
+
+                } else {
+                    alert(`'종료 
+정답은${randomN}입니다.}'`);
+                    /*  document.querySelector("button").disabled = true; */
+                }
+
+            }
+
+        }
+        /* 제출(); */
+
+    </script>
+    <input type="text" id=answer class="answer" placeholder="정답을 입력하세요.">
+    <br>
+    <button onclick="제출()">제출</button>
+</body>
