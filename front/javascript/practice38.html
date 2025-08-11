@@ -1,0 +1,34 @@
+<body>
+    <script>
+        class User {
+            constructor(fName, lName, age) {
+                this.fName = fName;
+                this.lName = lName;
+                this.age = age;
+
+            }
+            get age() {
+                return this._age;
+            }
+            set age(a) {
+
+                this._age = a;
+
+            }
+
+            get fName() {
+                return this._fName;
+
+            }
+
+            set fName(b) {
+                this._fName = b;
+            }
+        }
+        //생성자
+        const user = new User('Steve', 'Job', 57);
+        console.log(user.age);
+        console.log(user.fName);
+        
+    </script>
+</body>

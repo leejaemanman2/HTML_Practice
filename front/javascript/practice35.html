@@ -1,0 +1,21 @@
+<body>
+    <script>
+        function repeatWord(word, n) {
+            let result;
+            if (word.length % 2 === 0) {
+                // 짝수 길이면 그대로 n번 반복
+                result = word.repeat(n);
+            } else {
+                // 홀수 길이면 반복 후 마지막 글자 제거
+                result = word.repeat(n).slice(0, -1);
+            }
+            return result;
+        }
+
+        var word = "수박";
+        console.log(repeatWord(word, 3)); // 수박수박수박
+
+        word = "사과배";
+        console.log(repeatWord(word, 3)); // 사과배사과배사과
+    </script>
+</body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Kakao 지도 시작하기</title>
+    <style>
+        #map {
+            width: 500px;
+            height: 400px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- Kakao Maps SDK -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=626298ed16d825037d2cad43be2921e3"></script>
+
+    <script>
+        window.onload = function () {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(34.8884, 128.6041),
+                level: 3
+            };
+            var map = new kakao.maps.Map(container, options);
+
+            var marker = new kakao.maps.Marker({
+                position: options.center
+            });
+            marker.setMap(map);
+        };
+    </script>
+    <div>로그인/ 회원가입</div>
+</body>
+
+</html>

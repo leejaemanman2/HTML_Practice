@@ -1,28 +1,33 @@
 <body>
     <script>
 
-        const f2 = function(pos){
+        const f2 = function (pos) {
             console.log(pos);
 
             const lat = pos.coords.latitude;
             const log = pos.coords.longitude;
             console.log(lat, log);
-            
 
 
-            
+            //http://127.0.0.1:5500/javascript/test2.html
+
 
         }
+
+
+        navigator.geolocation.getCurrentPosition((pos) => {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            console.log(lat, lng);
+
+        });
+
+        /*
+                const f2 = function() {
+                    alert('f2 in timeout');
+                };
         
-
-        navigator.geolocation.getCurrentPosition(f2);
         
-/* 
-        const f2 = function() {
-            alert('f2 in timeout');
-        };
-
-
-        setTimeout(f2,2000); */
+                setTimeout(f2,2000); */
     </script>
 </body>
