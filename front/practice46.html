@@ -1,0 +1,16 @@
+<body>
+    <script>
+        let a = 192;
+        let b = 162;
+
+
+        function gcd(a, b) {
+            if(b==0) return a;
+            return gcd(b, a % b);
+
+
+        }
+        console.log(gcd(a, b));
+        
+    </script>
+</body>
