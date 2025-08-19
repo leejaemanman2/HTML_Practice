@@ -1,0 +1,18 @@
+<body>
+    <script>
+        const url = "https://data.geoje.go.kr/rfcapi/rest/geojefood/getGeojefoodList?serviceKey=A2usf4txsthrBPXx7%2FckSjISrlOOF3DRCXlpwxFKcl1KPyvOOWSD%2FUhcapvCkM51AdZOieooIvkMdz2XQCt33w%3D%3D&pageSize=10&startPage=1";
+
+        const res = fetch(url, {
+            headers: {
+                "Accept": "application/json"
+            }, 
+        });
+        const res2 = res.then((data) => {
+            return data.json();
+        });
+        res2.then((data) => {
+            console.log(data);
+
+        });
+    </script>
+</body>

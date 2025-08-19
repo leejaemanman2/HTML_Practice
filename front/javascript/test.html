@@ -1,16 +1,44 @@
 <body>
     <script>
-        const fetchNumber = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(10), 1000);
-        })
-        fetchNumber
-            .then(num => num * 2)
-            .then(num => num * 3)
-            .then(num => {
-                return new Promise((resolve, reject) => {
-                    resolve(num - 1);
-                })
-            })
-            .then(num => console.log(num));
+        const promise = new Promise((resolve, reject) => {
+            console.log('작업중...');
+            setTimeout(() => {
+                resolve('작업완료');
+                // reject(new Error('응답없음'));
+            }, 2000);
+        });
+        const run = async () => {
+            try {
+                const value = await promise;
+                console.log(value);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                console.log('finally');
+            };
+        };
+        run();
+        console.log('next');
     </script>
 </body>
+
+<!-- 
+const promise = new Promise((resolve, reject) => {
+console.log('작업중...');
+setTimeout(() => {
+resolve('작업완료');
+// reject(new Error('응답없음'));
+}, 2000);
+});
+promise
+.then((value) => { // resolve
+console.log(value);
+})
+.catch((error) => {
+console.log(error); // reject
+})
+.finally(() => {
+console.log('finally');
+});
+console.log('next'); 
+-->

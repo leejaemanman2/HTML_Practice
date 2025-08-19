@@ -1,0 +1,32 @@
+
+<body>
+    <div class="container mt-4">
+        <div class="d-grid">
+            <button type="button" class="btn btn-primary btn-block">
+                이미지 불러오기
+            </button>
+        </div>
+        <!-- 랜덤 이미지가 표시될 영역 -->
+        <div class="target"></div>
+    </div>
+
+    <script>
+        // 1. 필요한 HTML 요소들을 선택합니다.
+        const imageButton = document.querySelector('button');
+        const targetDiv = document.querySelector('.target');
+
+        // 2. 버튼에 'click' 이벤트 리스너를 추가합니다.
+        imageButton.addEventListener('click', () => {
+            // 3. 버튼을 클릭할 때마다 1부터 6까지의 새로운 랜덤 숫자를 생성합니다.
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+            // 4. 랜덤 숫자를 이용해 이미지 파일의 전체 URL을 만듭니다.
+            const imageUrl = `http://ggoreb.com/images/choco/${randomNumber}.jpg`;
+
+            // 5. targetDiv의 내용(innerHTML)을 새 이미지 태그로 교체합니다.
+            //    Bootstrap의 'img-fluid' 클래스를 사용하면 이미지가 부모 요소의 너비에 맞게 조절됩니다.
+            targetDiv.innerHTML = `<img src="${imageUrl}" class="img-fluid" alt="랜덤 초코 이미지">`;
+        });
+    </script>
+</body>
+</html>
