@@ -30,14 +30,12 @@
     <div class="card">
       <details open>
         <summary><strong>배열 전체 (JSON 보기)</strong></summary>
-
         <pre id="peopleRaw" style="white-space:pre-wrap; margin:8px 0;"></pre>
       </details>
 
       <div id="peopleCards" class="list" style="margin-top:8px;"></div>
 
       <hr style="border:none; border-top:1px solid #e5e7eb; margin:12px 0;" />
-    
 
       <div id="stats" class="list"></div>
     </div>
@@ -45,17 +43,14 @@
 
   <script>
     function showAddResult() {
-      const a = Number(document.querySelector('#a').value);
-
-      const b = Number(document.querySelector('#b').value);
-      document.querySelector('#addOut').textContent = a + b;
-
       // 코드 작성
-      // - A, B 합을 구해 #addOut에 출력
+      // - A, B 합을 구해 #addOut에 출력    
+
+      const a = Number(document.querySelector('#a').value);
+      const b = Number(document.querySelector('#b').value);
+
+      document.querySelector('#addOut').textContent = a + b;
     }
-
-
-
 
     const people = [
       { name: 'Lee', age: 20, job: 'Student' },
@@ -65,25 +60,46 @@
     ];
 
     function renderPeopleInfo() {
+      // 1. 원본 데이터(JSON) 표시
       document.querySelector('#peopleRaw').textContent =
         JSON.stringify(people, null, 2);
 
-      // 코드 작성
-      // - 명단 출력
-      // 출력 예시
-      <div class="card">
-        <strong>${p.name}</strong>
-        <div class="small">age: ${p.age}</div>
-        <div class="small">job: ${p.job}</div>
-      </div>
+      // // 2. 각 사람의 정보를 카드 형태로 표시
+      // const peopleCardsDiv = document.querySelector('#peopleCards');
+      // let peopleHtml = '';
+      // for (let i = 0; i < people.length; i++) {
+      //   const p = people[i];
+      //   peopleHtml += `<div class="card">${p.name} / ${p.age}세 / ${p.job}</div>`;
+      // }
+      // peopleCardsDiv.innerHTML = peopleHtml;
 
-      // 코드 작성
-      // - 평균 나이 구하기
-      // - 가장 나이가 많은 사람 찾기
-      // - #stats에 출력
+      // 3. 통계 계산 및 렌더링 (for문 사용)
+      if (people.length === 0) {
+        document.querySelector('#stats').innerHTML = '';
+        return;
+      }
 
+      let totalAge = 0;
+      let oldestPerson = people[0]; // 첫 번째 사람을 초기 최고령자로 설정
 
+      for (let i = 0; i < people.length; i++) {
+        const person = people[i];
+        
+        totalAge += person.age;
 
+       
+        if (person.age > oldestPerson.age) {
+          oldestPerson = person;
+        }
+      }
+
+      const averageAge = totalAge / people.length;
+
+      const statsDiv = document.querySelector('#stats');
+      statsDiv.innerHTML = `
+        <div class="card">평균 나이: <strong>${averageAge.toFixed(1)}</strong>세</div>
+        <div class="card">최고령자: <strong>${oldestPerson.name}</strong> (${oldestPerson.age}세)</div>
+      `;
     }
 
 

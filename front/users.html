@@ -21,58 +21,49 @@
     <h2>사용자 목록</h2>
     <input id="q" placeholder="이름/이메일 검색" />
     <div id="list" class="list">
-      <div class="card">
-        <strong>이름 name</strong> <span class="small">이메일 email</span><br />
-        <span class="small">주소 중 도시 address city</span>
-      </div>
-    </div>
   </main>
 
   <script>
     const listEl = document.querySelector("#list");
-    const seachEl = document.querySelector("#q");
-    let users = [];
+    const searchEl = document.querySelector("#q");
+    let allUsers = [];
+    // 사용자 목록을 화면에 렌더링하는 함수
+    function renderUsers(users) {
+      listEl.innerHTML = ""; // 기존 목록을 비웁니다.
+      users.forEach(user => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+          <strong>${user.name}</strong> <span class="small">${user.email}</span><br />
+          <span class="small">${user.address.city}</span>
+        `;
+        listEl.appendChild(card);
+      });
+    }
+
+
+
 
     // 코드 작성
     // - https://jsonplaceholder.typicode.com/users 데이터 가져오기
-    async function fetchUsers() {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
-      users = await res.json();
-      render(users);
-    }
 
-    function render(data) {
-      listEl.innerHTML = data.map(user => `<div class = "card">
-        <strong>이름 name</strong> <span class="small">이메일 email</span><br/>
-         <span class="small">주소 중 도시 address city</span>
-       </div>`).join("");
-    }
+    const url = "https://jsonplaceholder.typicode.com/users";
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        allUsers = data;
+        renderUsers(allUsers);
+      });
 
-    searchEl.addEventListener("input", () => {
-      const keyword = seachEl.value.toLowerCase();
-      const filtered = users.filter(user =>
-        user.name.toLowerCase().includes(keyword) ||
-        user.email.toLowerCase().includes(keyword)
-    );
-    render(filtered);
+    searchEl.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filteredUsers = allUsers.filter(user => {
+        return user.name.toLowerCase().includes(query) ||
+          user.email.toLowerCase().includes(query);
+      });
+      renderUsers(filteredUsers);
+
     });
-
-    fetchUsers();
-
-    // 코드 작성
-
-
-
-
-    // - #list에 출력
-    // 출력 예시
-    //   <div class="card">
-    //     <strong>이름 name</strong> <span class="small">이메일 email</span><br/>
-    //     <span class="small">주소 중 도시 address city</span>
-    //   </div>
-
-    // 코드 작성
-    // - 이름/이메일을 검색하면 해당 결과만 출력
 
   </script>
 </body>
